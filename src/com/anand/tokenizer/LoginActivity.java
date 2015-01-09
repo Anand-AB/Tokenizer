@@ -3,7 +3,6 @@ package com.anand.tokenizer;
 import java.util.StringTokenizer;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -44,10 +43,10 @@ public class LoginActivity extends ActionBarActivity {
 				stk2=new StringTokenizer(stk.nextToken(), ",");
 				usename=(stk2.nextToken());
 				passw=(stk2.nextToken());
-//				name=(stk2.nextToken());
-//				mail=(stk2.nextToken());
-//				phone=(stk2.nextToken());
-//				photo=(stk2.nextToken());
+				//				name=(stk2.nextToken());
+				//				mail=(stk2.nextToken());
+				//				phone=(stk2.nextToken());
+				//				photo=(stk2.nextToken());
 				if(usename.equalsIgnoreCase(username_entered) && passw.equals(password_entered)){
 					loginStatus=true;
 					Editor e=(PreferenceManager.getDefaultSharedPreferences(getApplicationContext())).edit();
