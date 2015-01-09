@@ -189,16 +189,19 @@ public class RegisterActivity extends ActionBarActivity {
 
 		if(registrationOk){
 			SharedPreferences sp=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+			String photo=sp.getString("userimagepath","");
 			Editor ed=sp.edit();
 			ed.putString("username", username_entered);
 			ed.putString("password", password_entered);
 			ed.putString("name", name_entered);
 			ed.putString("email", email_entered);
 			ed.putLong("phone", Long.parseLong(phone_entered));
+			ed.putString("photo","");
 			ed.putBoolean("login_status", false);
 
 
-			String currentuservalues=username_entered+","+password_entered+","+name_entered+","+username_entered+","+email_entered+","+phone_entered;
+			
+			String currentuservalues=username_entered+","+password_entered+","+name_entered+","+email_entered+","+phone_entered+","+photo;
 
 			if(! sp.getString("previous_registrations", "").equals("")){
 				//already some registered
@@ -208,6 +211,9 @@ public class RegisterActivity extends ActionBarActivity {
 			ed.commit();
 			Toast.makeText(getApplicationContext(), "Registered Succesfully. \n Please login to continue", Toast.LENGTH_LONG).show();
 			System.out.println("----------------------------------------\n"+sp.getString("previous_registrations", "ONNNUM ILLA")+"\n-------------------------------------------------");
+			
+			startActivity(new Intent(this, LoginActivity.class));
+			finish();
 
 		}
 
