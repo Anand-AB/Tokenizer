@@ -35,10 +35,7 @@ public class LoginActivity extends ActionBarActivity {
 			int no_of_users = stk.countTokens();
 			String usename="";
 			String passw="";
-			String name="";
-			String mail="";
-			String phone="";
-			String photo="";
+			
 			for (int i = 0; i < no_of_users; i++) {
 				stk2=new StringTokenizer(stk.nextToken(), ",");
 				usename=(stk2.nextToken());
